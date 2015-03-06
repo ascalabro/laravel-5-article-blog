@@ -7,7 +7,7 @@ class Article extends Model {
 
     public $timestamps = false;
 
-    protected $fillable = ['title', 'body', 'published_at'];
+    protected $fillable = ['title', 'body', 'published_at', 'user_id'];
 
     protected $dates = ['published_at'];
 
@@ -24,6 +24,11 @@ class Article extends Model {
     public function scopeUnpublished($query)
     {
         $query->where('published_at', '>=', Carbon::now());
+    }
+
+    public function user()
+    {
+        return $this->belongsTo("App\User");
     }
 
 }

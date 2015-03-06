@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration {
+class CreatePasswordsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,11 @@ class CreateArticlesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('articles', function(Blueprint $table)
+		Schema::create('passwords', function(Blueprint $table)
 		{
 			$table->increments('id');
-                        $table->integer('user_id')->unsigned();
-                        $table->string('title');
-                        $table->text('body');
-			$table->timestamp('published_at');
-                        $table->timestamps();
-
+                        $table->integer('user_id');
+			$table->timestamps();
                         $table->foreign('user_id')
                               ->references('id')
                               ->on('users')
@@ -35,7 +31,7 @@ class CreateArticlesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('articles');
+		Schema::drop('passwords');
 	}
 
 }
