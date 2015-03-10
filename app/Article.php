@@ -5,7 +5,7 @@ use Carbon\Carbon;
 
 class Article extends Model {
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = ['title', 'body', 'published_at', 'user_id'];
 
@@ -13,7 +13,7 @@ class Article extends Model {
 
     public function setPublishedAtAttribute($date)
     {
-        $this->attributes['published_at'] = Carbon::parse($date);
+        $this->attributes['published_at'] = Carbon::now();
     }
 
     public function scopePublished($query)

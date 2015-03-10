@@ -3,9 +3,12 @@
 @section('content')
 
 <h3>Articles</h3>
-
+<hr>
 @foreach ($articles as $article)
 <article class="panel-primary">
+    {!! Form::model($article, ['method' => 'DELETE', 'action' => ['ArticlesController@destroy', $article->id]]) !!}
+        {!! Form::submit('Delete', ['class' => 'btn btn-danger pull-right']) !!}
+    {!! Form::close() !!}
     <h2 class="panel-title">
         <a href="{{action('ArticlesController@show', [$article->id])}}">{{ $article->title }}</a>
     </h2>
@@ -14,6 +17,7 @@
         {{$article->body}}
     </div>
 </article>
+<hr>
 @endforeach
 @stop
 

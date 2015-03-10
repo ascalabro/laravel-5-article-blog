@@ -5,6 +5,7 @@ use App\Article;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Request;
+use Auth;
 
 class ArticlesController extends Controller {
 
@@ -15,6 +16,7 @@ class ArticlesController extends Controller {
 	 */
 	public function index()
 	{
+//            return \Auth::user()->username;
 		$articles = Article::latest('published_at')->published()->get();
                 return view('articles.index', compact('articles'));
 	}
@@ -34,7 +36,7 @@ class ArticlesController extends Controller {
         public function store(Requests\ArticleRequest $request)
         {
             $input = $request->all();
-            Article::create($input);
+            Auth::user()->articles()->save(new Article($input));
             return redirect('articles');
         }
 
@@ -50,6 +52,12 @@ class ArticlesController extends Controller {
 
             $article->update($request->all());
 
+            return redirect('articles');
+        }
+
+        public function destroy($id)
+        {
+            Article::destroy($id);
             return redirect('articles');
         }
 
