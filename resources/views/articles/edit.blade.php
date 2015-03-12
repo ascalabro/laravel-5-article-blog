@@ -1,9 +1,15 @@
-@extends('layout')
+@extends('app')
 
 @section('content')
-<h3>Edit: {!! $article->title !!}</h3>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		<h3>Edit: {!! $article->title !!}</h3>
     @include('errors.list')
     {!! Form::model($article, ['method' => 'PATCH', 'action' => ['ArticlesController@update', $article->id]]) !!}
-        @include('articles.partials._form', ['submitButtonText' => 'Add Article'])
+        @include('articles.partials._form', ['submitButtonText' => 'Update Article'])
     {!! Form::close() !!}
+		</div>
+	</div>
+</div>
 @stop
