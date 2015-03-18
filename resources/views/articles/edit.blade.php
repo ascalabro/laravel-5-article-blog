@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <a class="btn btn-primary btn-sm" href="{{URL::previous()}}">Back</a>
+<hr>
+<div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 		<h3>Edit: {!! $article->title !!}</h3>

@@ -54,9 +54,9 @@ class ArticlesController extends Controller {
             return redirect('articles');
         }
 
-        public function destroy($id)
+        public function destroy(Article $article)
         {
-            Article::destroy($id);
+            $article->delete();
             return redirect('articles');
         }
 
