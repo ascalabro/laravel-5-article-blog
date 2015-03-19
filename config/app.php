@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => env('APP_HOSTNAME'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -137,6 +137,8 @@ return [
 		'Illuminate\View\ViewServiceProvider',
                 'Illuminate\Html\HtmlServiceProvider',
 
+                'Laracasts\Flash\FlashServiceProvider',
+
 		/*
 		 * Application Service Providers...
 		 */
@@ -197,5 +199,16 @@ return [
                 'Html'      => 'Illuminate\Html\HtmlFacade'
 
 	],
+
+        /*
+	|--------------------------------------------------------------------------
+	| App Name
+	|--------------------------------------------------------------------------
+	|
+	| The name of the application
+	|
+	*/
+
+        'name' => 'Last Day Flights News'
 
 ];

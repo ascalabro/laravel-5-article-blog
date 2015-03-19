@@ -11,7 +11,7 @@ class ArticlesController extends Controller {
 
 
         public function __construct() {
-            $this->middleware('auth', ['only' => 'create']);
+            $this->middleware('auth', ['only' => ['create', 'edit', 'destroy']]);
         }
 
 	/**
@@ -34,16 +34,18 @@ class ArticlesController extends Controller {
         public function create()
         {
             return view('articles.create');
-        }
+    }
 
-        public function store(Requests\ArticleRequest $request)
-        {
-            $input = $request->all();
-            Auth::user()->articles()->save(new Article($input));
-            return redirect('articles');
-        }
+    public function store(Requests\ArticleRequest $request) {
+        $input = $request->all();
+        Auth::user()->articles()->save(new Article($input));
+//            Auth::user()->articles()->create($input);
+        // Set flash message
+        flash()->overlay('Your article has been created!', 'Success');
+        return redirect('articles');
+    }
 
-        public function edit(Article $article)
+    public function edit(Article $article)
         {
             return view('articles.edit', compact('article'));
         }

@@ -2,13 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="">
-    <div class="row">
-        <h3 class="">Articles Index</h3>
-        <a class="btn btn-success btn-sm pull-left" href="{{action('ArticlesController@create')}}">Create New Article</a>
+    <div class="jumbotron">
+        <h2 class="h2">News Articles</h2>
+        <span class='caption'>To Create/Edit/Delete articles on this site, register for a free account. This is Angelo's Laravel sandbox.</span>
     </div>
-
     <hr>
+    @if (!Auth::guest())
+    <a class="btn btn-success btn-sm pull-left" href="{{action('ArticlesController@create')}}">Create New Article</a>
+    @endif
     <div class="row ">
         <div class="col-md-10 col-md-offset-1">
             @foreach ($articles as $article)
@@ -20,8 +21,8 @@
                     </li>
                     <li class="input-lg">
                         {!! Form::model($article, ['method' => 'DELETE', 'action' => ['ArticlesController@destroy', $article->id]]) !!}
-                    {!! Form::submit('Delete This Article', ['class' => 'btn btn-sm btn-danger pull-right']) !!}
-                    {!! Form::close() !!}
+                        {!! Form::submit('Delete This Article', ['class' => 'btn btn-sm btn-danger pull-right']) !!}
+                        {!! Form::close() !!}
                     </li>
                 </ul>
                 </div>
@@ -43,15 +44,19 @@
             @endforeach
         </div>
     </div>
-    </div>
 </div>
 
 @stop
 
 @section('footer')
-<div class="navbar navbar-default navbar-nav navbar-left">
-    <ul class=" input-group-btn pull-left">
-        <!--<li><a class="btn btn-success btn-sm " href="{{action('ArticlesController@create')}}">Create New Article</a></li>-->
-    </ul>
+<div class="container">
+    <h5>The footer section</h5>
+    <div class='nav'>
+        <nav class="navbar navbar-default">
+            <ul>
+                <li>menu item 1</li>
+            </ul>
+            </nav>
+    </div>
 </div>
 @stop
