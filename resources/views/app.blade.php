@@ -7,7 +7,7 @@
 	<title>{{ config('app.name') }}</title>
 
 	<link href="/css/app.css" rel="stylesheet">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
 	<!-- Fonts -->
 	<!--<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>-->
 
@@ -58,15 +58,15 @@
 
 	@yield('content')
 
-        @yield('footer')
-
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
         <script>
             $('#flash-overlay-modal').modal();
 //            $('div.alert').not('.alert-important').delay(3000).slideUp(300);
         </script>
+
+        @yield('footer')
 </body>
 </html>
