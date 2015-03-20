@@ -41,5 +41,5 @@ Route::get('/', 'ArticlesController@index');
 Route::get('contact', 'WelcomeController@contact');
 */
 Route::get('home', 'ArticlesController@index');
-/*');
+//');
 
