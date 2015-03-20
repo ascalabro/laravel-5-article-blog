@@ -10,9 +10,7 @@ class PagesController extends Controller {
 	public function about()
         {
             $name = "Angelo Scalabroni";
-            $people = [
-                "Cody", "Will"
-            ];
+            $people = \App\User::all();
             return view('pages.about', compact('name', 'people'));
         }
 

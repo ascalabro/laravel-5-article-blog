@@ -10,10 +10,10 @@
 Sale timeam usu te. Adhuc corpora appetere sit in. Mei ei praesent accommodare, aliquam volumus at per. Ea qui illud debet, usu vituperata repudiandae ut. Ex prompta fuisset detracto duo, an ullum consectetuer vim, suas idque philosophia nec no. Vis ei solet repudiandae, te sit eirmod oblique atomorum.
 </p>
 @if (count($people))
-<h5>People I like:</h5>
+<h5>Currently registered users list:</h5>
 <ol>
 @foreach($people as $person)
-<li>{{$person}}</li>
+<li>{{$person->username}} - {{$person->email}}</li>
 @endforeach
 </ol>
 @endif
