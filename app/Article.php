@@ -11,9 +11,14 @@ class Article extends Model {
 
     protected $dates = ['published_at'];
 
-    public function setPublishedAtAttribute($date)
+//    public function setPublishedAtAttribute($date)
+//    {
+//        $this->attributes['published_at'] = Carbon::now();
+//    }
+
+    public function getPublishedAtAttribute($date)
     {
-        $this->attributes['published_at'] = Carbon::now();
+        return new Carbon($date);
     }
 
     public function scopePublished($query)

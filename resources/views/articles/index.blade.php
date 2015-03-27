@@ -16,7 +16,9 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><a href="{{action('ArticlesController@show', [$article->id])}}">{{ $article->title }}</a></h3>
-                        <span class="label label-default">Created at: {{$article->published_at}}</span>
+                        <span class="label label-default">Created at: {{$article->created_at}}</span>
+                        <span class="label label-info">Published at: {{$article->published_at}}</span>
+                        <span class="label label-primary">Updated at: {{$article->updated_at}}</span>
                     </div>
                     <div class="panel-body">
                         {{$article->body}}
