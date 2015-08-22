@@ -2,5 +2,9 @@
   "devDependencies": {
     "gulp": "^3.8.8",
     "laravel-elixir": "*"
-  }
+  },
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/ascalabro/lastdayflights.com.git"
+}
 }
