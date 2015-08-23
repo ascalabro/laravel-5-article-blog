@@ -37,7 +37,7 @@ Route::get('foo', ['middleware' => 'manager', function()
     return 'this page may only be viewed by manaager';
 }]);
 
-Route::get('/', 'ArticlesController@index');
+Route::get('/', 'BookingSearchController@index');
 /*
 Route::get('contact', 'WelcomeController@contact');
 */

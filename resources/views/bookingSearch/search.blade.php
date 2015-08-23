@@ -2,14 +2,13 @@
 
 @section('content')
 <div class="container">
-    <a class="btn btn-primary btn-sm" href="{{URL::previous()}}">Back</a>
+    <!--<a class="btn btn-primary btn-sm" href="{{URL::previous()}}">Back</a>-->
     <hr>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h3>Search Form</h3>
+    <div class="ui container">
+        <div class="ui row">
+            <div class="ui col-md-10 col-md-offset-1">
+                <h3 class="ui header">Search Form</h3>
                 <div>
-
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Flights</a></li>

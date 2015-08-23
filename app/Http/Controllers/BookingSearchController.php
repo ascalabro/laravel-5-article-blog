@@ -23,7 +23,7 @@ class BookingSearchController extends Controller {
 //            return redirect('search')->with('status', 'No products were found matching that search term.')->withInput();
 //        }
 //        return view('search', compact('shirts'));
-
+$a = 4;
         return view('bookingSearch.search', compact('shirts'));
     }
 

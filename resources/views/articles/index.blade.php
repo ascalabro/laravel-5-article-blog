@@ -1,37 +1,45 @@
 @extends('app')
-
 @section('content')
-<div class="container">
-    <div class="jumbotron">
-        <h2 class="h2">News Articles</h2>
-        <span class='caption'>To Create/Edit/Delete articles on this site, register for an account(No cost, no email/info is stored, just a sandbox site). This is Angelo's Laravel sandbox.</span>
-    </div>
-    <hr class="divider">
-
-    <div class="col-md-10 col-md-offset-1">
-        @foreach ($articles as $article)
-        <article class="panel-primary container-fluid  well">
-
-            <div class="row">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><a href="{{action('ArticlesController@show', [$article->id])}}">{{ $article->title }}</a></h3>
-                        <span class="label label-default">Created at: {{$article->created_at}}</span>
-                        <span class="label label-info">Published at: {{$article->published_at}}</span>
-                        <span class="label label-primary">Updated at: {{$article->updated_at}}</span>
+<!--@section('content')
+    <div class="ui two column stackable grid">-->
+<!--        <div class="column">
+            <div class="ui segment">Content</div>
+        </div>
+        <div class="column">
+            <div class="ui segment">Content</div>
+        </div>-->
+<div class="four wide column">
+    <div class="ui segment">Content 3 </div>
+</div>
+<div class="eleven wide column">
+    <div class="ui segment">
+        <div class="jumbotron">
+            <h2 class="ui header">News Articles<div class="sub header">To Create/Edit/Delete articles on this site, register for an account(No cost, no email/info is stored, just a sandbox site). This is Angelo's Laravel sandbox.</div></h2>
+        </div>
+        <div class="ui raised segment item">
+            @foreach ($articles as $article)
+            <!--<article class="panel-primary container-fluid  well">-->
+            <div class="ui items">
+                <div class="item">
+                    <div class="content">
+                        <a href="{{action('ArticlesController@show', [$article->id])}}" class="header">{{ $article->title }}</a>
                     </div>
-                    <div class="panel-body">
-                        {{$article->body}}
-                    </div>
-                    @unless($article->tags->isEmpty())
-                    <div class="panel-footer">
-                        @foreach($article->tags as $tag)
-                        #{{$tag->name}},
-                        @endforeach
-                    </div>
-                    @endunless
                 </div>
+
+                <span class="label label-default">Created at: {{$article->created_at}}</span>
+                <span class="label label-info">Published at: {{$article->published_at}}</span>
+                <span class="label label-primary">Updated at: {{$article->updated_at}}</span>
             </div>
+            <div class="panel-body">
+                {{$article->body}}
+            </div>
+            @unless($article->tags->isEmpty())
+            <div class="panel-footer">
+                @foreach($article->tags as $tag)
+                #{{$tag->name}},
+                @endforeach
+            </div>
+            @endunless
             @unless(Auth::guest())
             <div class="row">
                 <ul class="pull-left input-group list-inline">
@@ -49,11 +57,16 @@
                 </ul>
             </div>
             @endunless
-        </article>
-        <hr>
-        @endforeach
+            <!--</article>-->
+            <hr>
+            @endforeach
+        </div>
     </div>
 </div>
+</div>
+
+<hr class="divider">
+
 
 @stop
 
