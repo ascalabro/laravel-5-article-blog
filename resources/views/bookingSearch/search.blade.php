@@ -1,37 +1,34 @@
 @extends('app')
 
 @section('content')
-<div class="container">
-    <!--<a class="btn btn-primary btn-sm" href="{{URL::previous()}}">Back</a>-->
-    <hr>
-    <div class="ui container">
-        <div class="ui row">
-            <div class="ui col-md-10 col-md-offset-1">
-                <h3 class="ui header">Search Form</h3>
-                <div>
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Flights</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hotels</a></li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Packages</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Cruises</a></li>
-                        <li role="presentation"><a href="#rental-cars" aria-controls="rental-cars" role="tab" data-toggle="tab">Rental Cars</a></li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home">home</div>
-                        <div role="tabpanel" class="tab-pane" id="profile">p.</div>
-                        <div role="tabpanel" class="tab-pane" id="messages">m.</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">.s</div>
-                        <div role="tabpanel" class="tab-pane" id="rental-cars">.aa</div>
-                    </div>
-
+<!--<a class="btn btn-primary btn-sm" href="{{URL::previous()}}">Back</a>-->
+    <div class="ui three column stackable grid">
+        <div class="four wide column">
+            <div class="ui padded segment">
+                <div class="ui padded segment">Content 3 </div>
+            </div>
+        </div>
+        <div class="nine wide padded column">
+                <h2 class="ui header">Search Form</h2>
+                <div class="ui top attached tabular menu">
+                    <a class="item" data-tab="first">First</a>
+                    <a class="item" data-tab="second">Second</a>
+                    <a class="item active" data-tab="third">Third</a>
                 </div>
-
+                <div class="ui bottom attached tab segment" data-tab="first">
+                    First
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="second">
+                    Second
+                </div>
+                <div class="ui bottom attached tab segment active" data-tab="third">
+                    Third
+                </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui padded segment">
+                <script async src="//www.travelpayouts.com/weedle/widget.js?marker=85054&host=hydra.aviasales.ru&locale=en&currency=usd&destination=NYC&destination_name=New%20York%2C%20NY" charset="UTF-8"></script>
             </div>
         </div>
     </div>
-
-
-    @stop
+@stop

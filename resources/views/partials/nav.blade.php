@@ -1,58 +1,52 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!--        <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
-                </div>-->
-
-        <div class="ui inverted segment">
-            <div class="ui inverted secondary pointing menu">
-                <a class="active item" href="/">
-                    Home
-                </a>
-                <a class="item" href="/search">
-                    Travel Search
-                </a>
-                <a class="item" href="/articles">
-                    Articles
-                </a>
-                <a class="item" href="/about">
-                    About
-                </a>
-                <div class=" right menu ">
-                    <div class="item">
-                        {!! link_to_action('ArticlesController@show', "Latest Article: " . $latest->title, [$latest->id]) !!}
-                    </div>
-                    <div class="item">
-                        @if (Auth::guest())
-                        <li class="item "><a href="/auth/login">Login</a></li>
-                        <li class="item "><a href="/auth/register">Register</a></li>
-                        @else
-                        <div class="ui item dropdown button navbar" tabindex="0">
-                            <div class="text">Go to</div>
-                            <i class="dropdown icon" tabindex="0"><div class="menu"></div></i>
-                            <div class="menu transition hidden" tabindex="-1">
-                                <a class="item" href="#link1"><i class="home icon"></i> Home</a>
-                                <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
-                                <a class="item" href="#/latest"><i class="search icon"></i> Latest Deals</a>
-                                <a class="item" href="/auth/logout"><i class="sign out icon"></i> Log Out</a>
-                            </div>      
-                        </div>
-
-                        @endif
-                    </div>
-                </div>
+<div class="ui stackable container inverted menu">
+    <!--                <a href="/" class="brand item">Project Name</a>-->
+    {!! link_to('/', "Home", ['class'=>'item']) !!}
+    {!! link_to('/search', "Travel Search", ['class'=> Request::is('search') || Request::is('/') ? 'item active' : 'item']) !!}
+    {!! link_to('/articles', "Articles", ['class'=> Request::is('articles') ? 'item active' : 'item']) !!}
+    {!! link_to('/about', "About", ['class'=> Request::is('about') ? 'item active' : 'item']) !!}
+    <a class="right container menu stackable">
+        {!! link_to_action('ArticlesController@show', "Latest: " . $latest->title, [$latest->id], ['class'=>'item']) !!}
+        @if (Auth::guest())
+            {!! link_to('auth/login', "Login", ['class'=>'item']) !!}
+            {!! link_to('auth/register', "Register", ['class'=>'item']) !!}
+        @else
+        <div class="ui dropdown item">Account
+            <i class="dropdown icon"></i>
+            <div class="menu stackable">
+                <div class="ui item"><a href="#/account/settings" class="ui">Settings</a></div>
+                <div class="ui divider"></div>
+                <div class="item">{!! link_to('auth/logout', "Logout", ['class'=>'ui']) !!}</div>
             </div>
         </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-        </div>
-    </div>
-</nav>
+        @endif
+    </a>
+    <!--<div class="ui pointing dropdown link item" tabindex="0">
+          <span class="text">Account</span>
+          <i class="dropdown icon"></i>
+          <div class="menu transition hidden" tabindex="-1">
+            <div class="header">Categories</div>
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">Clothing</span>
+              <div class="menu transition hidden">
+                <div class="header">Mens</div>
+                <div class="item">Shirts</div>
+                <div class="item">Pants</div>
+                <div class="item">Jeans</div>
+                <div class="item">Shoes</div>
+                <div class="divider"></div>
+                <div class="header">Womens</div>
+                <div class="item">Dresses</div>
+                <div class="item">Shoes</div>
+                <div class="item">Bags</div>
+              </div>
+            </div>
+            <div class="item">&lt;a&gt;Home Goods&lt;/a&gt;</div>
+            <div class="item">Bedroom</div>
+            <div class="divider"></div>
+            <div class="header">Order</div>
+            <div class="item">Status</div>
+            <div class="item">Cancellations</div>
+          </div>
+        </div>-->
+</div>
