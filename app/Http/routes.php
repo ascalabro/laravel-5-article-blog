@@ -31,6 +31,7 @@ Route::controllers([
     'password' => 'Auth\PasswordController'
 ]);
 
+Route::get('massEmailer', 'EmailController@index');
 
 Route::get('foo', ['middleware' => 'manager', function()
 {

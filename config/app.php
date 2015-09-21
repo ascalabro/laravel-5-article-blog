@@ -210,6 +210,6 @@ return [
 	|
 	*/
 
-        'name' => 'Last Day Flights News'
+        'name' => 'Marketing Tools'
 
 ];

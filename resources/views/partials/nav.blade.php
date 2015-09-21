@@ -24,6 +24,16 @@
                 <a class="item" href="/about">
                     About
                 </a>
+                <div class="ui item dropdown button navbar" tabindex="0">
+                            <div class="text">Tools</div>
+                            <i class="dropdown icon" tabindex="0"><div class="menu"></div></i>
+                            <div class="menu transition hidden" tabindex="-1">
+                                <a class="item" href="/emailer"><i class="mail icon"></i>Mass Emailer</a>
+                                <!--<a class="item" href="#link2"><i class="users icon"></i> Browse</a>
+                                <a class="item" href="#/latest"><i class="search icon"></i> Latest Deals</a>
+                                <a class="item" href="/auth/logout"><i class="sign out icon"></i> Log Out</a>-->
+                            </div>      
+                        </div>
                 <div class=" right menu ">
                     <div class="item">
                         {!! link_to_action('ArticlesController@show', "Latest Article: " . $latest->title, [$latest->id]) !!}

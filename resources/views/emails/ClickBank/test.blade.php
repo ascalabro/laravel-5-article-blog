@@ -1,0 +1,1 @@
+this is the test email <?php echo date("m d y"); ?>
